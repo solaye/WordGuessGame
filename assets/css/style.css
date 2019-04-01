@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+
+
+body{
+    background: url(../images/spideystrip.gif);
+}
+
+
+
+
+.jumbotron{
+
+    background: url(../images/black.jpeg);
+    margin-top: 50px;
+    border: 1px solid #dddddd;
+}
+
+
+
+h2{
+
+  font-family: 'Coming Soon', cursive;
+}
+
