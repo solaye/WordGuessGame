@@ -1,3 +1,5 @@
+var needaDrink = prompt("Press a key to get the fun started.");
+
 const wordBank = ['neighborhood', 'radioactive', 'spider', 'marvel', 'venom', 'carnage', 'octavius'];
   var ilikewords = "";
   var letters= [];
@@ -28,8 +30,8 @@ const wordBank = ['neighborhood', 'radioactive', 'spider', 'marvel', 'venom', 'c
       console.log(coolStory)
     }
            
-    document.getElementById("secretAnswer").innerHTML = coolStory.join(" ");
-    document.getElementById("game").innerHTML = wins;
+    document.getElementById("Output").innerHTML = coolStory.join(" ");
+    document.getElementById("dubs").innerHTML = wins;
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("guessesLeft").innerHTML = guessesLeft;
 
@@ -40,17 +42,17 @@ function checkAnswer (letter) {
 
   var letterInWord = false;
 
-  for(var j = 0; j < digit; j++) {
+  for(var l = 0; l < digit; l++) {
 
-    if (letter == ilikewords[j]) {
+    if (letter == ilikewords[l]) {
       letterInWord = true;
     }
   }
  
   if (letterInWord) {
-    for(var j = 0; j < digit; j++) {
-      if (ilikewords[j] == letter) {
-        coolStory[j] = letter;
+    for(var l = 0; l < digit; l++) {
+      if (ilikewords[l] == letter) {
+        coolStory[l] = letter;
         console.log(coolStory)
       }         
     }
@@ -68,11 +70,11 @@ gameStart();
 function circuit() {
   document.getElementById("guessesLeft").innerHTML = guessesLeft;
   document.getElementById("answersGuessed").innerHTML = wrongLetters;
-  document.getElementById("secretAnswer").innerHTML = coolStory.join(" ");
+  document.getElementById("Output").innerHTML = coolStory.join(" ");
    
   if(letters.toString() == coolStory.toString()) {
     wins++
-    document.getElementById("game").innerHTML = wins;
+    document.getElementById("dubs").innerHTML = wins;
     gameStart();
     
   } else if (guessesLeft===0) {
@@ -90,23 +92,26 @@ document.onkeypress = function(event) {
   circuit();
   switch(guessesLeft) {
    
+    case 10:
+    document.getElementById("myimg").src = "assets/images/hang0.gif"; 
+    break;
     case 5:
-    document.getElementById("myimg").src = "../assets/images/hang1.gif"; 
+    document.getElementById("myimg").src = "assets/images/hang1.gif"; 
       break;
       case 4:
-    document.getElementById("myimg").src = "../assets/images/hang2.gif" 
+    document.getElementById("myimg").src = "assets/images/hang2.gif" 
       break;
     case 3:
-    document.getElementById("myimg").src = "../assets/images/hang3.gif"; 
+    document.getElementById("myimg").src = "assets/images/hang3.gif"; 
       break;
       case 2:
-      document.getElementById("myimg").src = "../assets/images/hang4.gif" 
+      document.getElementById("myimg").src = "assets/images/hang4.gif" 
         break;
         
       case 1:
-      document.getElementById("myimg").src = "../assets/images/hang5.gif"; 
+      document.getElementById("myimg").src = "assets/images/hang5.gif"; 
         break;
-  
+       
   }
   
 
