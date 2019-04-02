@@ -16,6 +16,7 @@ const wordBank = ['neighborhood', 'radioactive', 'spider', 'marvel', 'venom', 'c
     ilikewords = wordBank[Math.floor(Math.random() * wordBank.length)];
     letters = ilikewords.split("");
     digit = letters.length;
+   
 
     // console.log(digit);
     // console.log(letters);
@@ -34,7 +35,8 @@ const wordBank = ['neighborhood', 'radioactive', 'spider', 'marvel', 'venom', 'c
     document.getElementById("dubs").innerHTML = wins;
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("guessesLeft").innerHTML = guessesLeft;
-
+    
+  
   };
     
 
@@ -75,7 +77,17 @@ function circuit() {
   if(letters.toString() == coolStory.toString()) {
     wins++
     document.getElementById("dubs").innerHTML = wins;
-    gameStart();
+     
+    var audio = new Audio();
+audio.src = "assets/javascript/Spidey.mp3";
+
+audio.play();
+audio.currentTime=0;
+if(audio.currentTime>15){
+  audio.pause();
+  }
+gameStart();
+    
     
   } else if (guessesLeft===0) {
       losses++
